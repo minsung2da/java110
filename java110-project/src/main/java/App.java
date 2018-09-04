@@ -10,6 +10,8 @@ public class App {
      Scanner keyIn = new Scanner(System.in);
      
      //2)회원정보 입력받기
+     
+     while(true) {
      System.out.println("이름? ");
      String name = keyIn.nextLine();
      
@@ -18,8 +20,17 @@ public class App {
      
      System.out.println("암호? ");
      String password = keyIn.nextLine();
-     
-     
     System.out.printf("%s, %s, %s\n", name , email, password);
+    
+    System.out.println("계속 입력 하겠습니까? (Y/n) ");
+    String answer =keyIn.nextLine();
+    
+    if(answer.toLowerCase().equals("n"))
+      break;
+    a
+  
+    
+     }
+     
     }
 }
