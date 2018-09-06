@@ -1,6 +1,6 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Scanner;
-
 
 import bitcamp.java110.cms.control.ManagerController;
 import bitcamp.java110.cms.control.StudentController;
