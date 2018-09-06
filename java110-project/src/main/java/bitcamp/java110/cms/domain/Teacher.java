@@ -1,7 +1,11 @@
 package bitcamp.java110.cms.domain;
 
+<<<<<<< HEAD
   
  public class Teacher extends Member {
+=======
+public class Teacher extends Member {
+>>>>>>> b1
     protected String tel;
     protected int pay;
     protected String subjects;
@@ -24,4 +28,8 @@ package bitcamp.java110.cms.domain;
     public void setSubjects(String subjects) {
         this.subjects = subjects;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> b1

@@ -7,6 +7,7 @@ import bitcamp.java110.cms.util.ArrayList;
 
 public class StudentController {
 
+<<<<<<< HEAD:java110-project/src/main/java/bitcamp/java110/cms/control/StudentController.java
     private  ArrayList students = new ArrayList();
     public Scanner keyIn;
     public StudentController(Scanner keyIn) {
@@ -14,6 +15,15 @@ public class StudentController {
     }
     
     
+=======
+    private ArrayList students = new ArrayList();
+    public Scanner keyIn;
+    
+    public StudentController(Scanner keyIn) {
+        this.keyIn = keyIn;
+    }
+    
+>>>>>>> b1:java110-project/src/main/java/bitcamp/java110/cms/control/StudentController.java
     public void serviceStudentMenu() {
         while (true) {
             System.out.print("학생 관리> ");
@@ -112,7 +122,11 @@ public class StudentController {
         System.out.printf("재직여부: %b\n", student.isWorking());
     }
     
+<<<<<<< HEAD:java110-project/src/main/java/bitcamp/java110/cms/control/StudentController.java
      { // 인스턴스 블럭, 생성자 호출 전에 호출 , 인스턴스 블럭이 여러개 있으면 여러개 호출된 뒤에 생성자호출
+=======
+    { // 인스턴스 블록
+>>>>>>> b1:java110-project/src/main/java/bitcamp/java110/cms/control/StudentController.java
         Student s = new Student();
         s.setName("a");
         students.add(s);
@@ -134,4 +148,4 @@ public class StudentController {
         students.add(s);
     }
 }
-     
+

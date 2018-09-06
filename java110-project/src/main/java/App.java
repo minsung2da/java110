@@ -6,12 +6,12 @@ import bitcamp.java110.cms.control.TeacherController;
 
 public class App {
     
-
     static Scanner keyIn = new Scanner(System.in);
 
     public static void main(String[] args) {
         
         StudentController sc = new StudentController(keyIn);
+<<<<<<< HEAD
         sc.keyIn = keyIn;
         
         TeacherController tc = new TeacherController(keyIn);
@@ -19,17 +19,32 @@ public class App {
         
         ManagerController mc = new ManagerController(keyIn);
         mc.keyIn = keyIn;
+=======
+        TeacherController tc = new TeacherController(keyIn);
+        ManagerController mc = new ManagerController(keyIn);
+>>>>>>> b1
         
         while (true) {
             String menu = promptMenu();
             
             if (menu.equals("1")) {
+<<<<<<< HEAD
                sc.serviceStudentMenu();
             } else if (menu.equals("2")) {
                tc.serviceTeacherMenu();
             }else if(menu.equals("3"))
             {
                 mc.serviceManagerMenu();
+=======
+                sc.serviceStudentMenu();
+                
+            } else if (menu.equals("2")) {
+                tc.serviceTeacherMenu();
+                
+            } else if (menu.equals("3")) {
+                mc.serviceManagerMenu();
+                
+>>>>>>> b1
             } else if (menu.equals("0")){
                 System.out.println("안녕히 가세요!");
                 break;
@@ -38,7 +53,6 @@ public class App {
         
         keyIn.close();
     }
-
 
     private static String promptMenu() {
         System.out.println("[메뉴]");
@@ -63,7 +77,4 @@ public class App {
             }
         }
     }
-    
-   
 }
-

@@ -6,13 +6,12 @@ import bitcamp.java110.cms.domain.Teacher;
 import bitcamp.java110.cms.util.ArrayList;
 
 public class TeacherController {
-
-    private ArrayList teachers = new ArrayList();
-    public  Scanner keyIn;
-   
+    
+    private ArrayList<Teacher> teachers = new ArrayList<>();
+    public Scanner keyIn;
+    
     public TeacherController(Scanner keyIn) {
         this.keyIn = keyIn;
-        
     }
     
     public void serviceTeacherMenu() {
@@ -37,8 +36,8 @@ public class TeacherController {
     
     private void printTeachers() {
         for (int i = 0; i < teachers.size(); i++) {
-            Teacher s = (Teacher)teachers.get(i);
-            System.out.printf("%d: %s, %s, %s, %s,%s, %s\n",
+            Teacher s = teachers.get(i);
+            System.out.printf("%d: %s, %s, %s, %s, %d, [%s]\n",
                     i,
                     s.getName(), 
                     s.getEmail(), 
@@ -65,10 +64,10 @@ public class TeacherController {
             System.out.print("전화? ");
             m.setTel(keyIn.nextLine());
             
-            System.out.print("급여? ");
+            System.out.print("시급? ");
             m.setPay(Integer.parseInt(keyIn.nextLine()));
             
-            System.out.print("과목? ");
+            System.out.print("강의과목?(예: 자바,C,C++) ");
             m.setSubjects(keyIn.nextLine());
             
             teachers.add(m);
@@ -79,7 +78,7 @@ public class TeacherController {
                 break;
         }
     }
-
+    
     private void deleteTeacher() {
         System.out.print("삭제할 번호? ");
         int no = Integer.parseInt(keyIn.nextLine());
@@ -103,16 +102,14 @@ public class TeacherController {
             return;
         }
         
-        Teacher teacher = (Teacher)teachers.get(no);
+        Teacher t = teachers.get(no);
         
-        System.out.printf("이름: %s\n", teacher.getName());
-        System.out.printf("이메일: %s\n", teacher.getEmail());
-        System.out.printf("암호: %s\n", teacher.getPassword()); 
-        System.out.printf("전화: %s\n", teacher.getTel());
-        System.out.printf("급여: %s\n", teacher.getPay());
-        System.out.printf("과목: %s\n", teacher.getSubjects());
-       
+        System.out.printf("이름: %s\n", t.getName());
+        System.out.printf("이메일: %s\n", t.getEmail());
+        System.out.printf("암호: %s\n", t.getPassword());
+        System.out.printf("전화: %s\n", t.getTel());
+        System.out.printf("시급: %d\n", t.getPay());
+        System.out.printf("강의과목: %s\n", t.getSubjects());
     }
-    
- 
 }
+

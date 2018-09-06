@@ -9,9 +9,15 @@ public class ManagerController {
 
     private ArrayList managers = new ArrayList();
     public Scanner keyIn;
+<<<<<<< HEAD:java110-project/src/main/java/bitcamp/java110/cms/control/ManagerController.java
     public ManagerController(Scanner keyIn) {
         this.keyIn = keyIn;
         
+=======
+    
+    public ManagerController(Scanner keyIn) {
+        this.keyIn = keyIn;
+>>>>>>> b1:java110-project/src/main/java/bitcamp/java110/cms/control/ManagerController.java
     }
     
     public void serviceManagerMenu() {
@@ -67,7 +73,10 @@ public class ManagerController {
             m.setTel(keyIn.nextLine());
             
             
+<<<<<<< HEAD:java110-project/src/main/java/bitcamp/java110/cms/control/ManagerController.java
             
+=======
+>>>>>>> b1:java110-project/src/main/java/bitcamp/java110/cms/control/ManagerController.java
             managers.add(m);
             
             System.out.print("계속 하시겠습니까?(Y/n) ");
@@ -76,7 +85,11 @@ public class ManagerController {
                 break;
         }
     }
+<<<<<<< HEAD:java110-project/src/main/java/bitcamp/java110/cms/control/ManagerController.java
 
+=======
+    
+>>>>>>> b1:java110-project/src/main/java/bitcamp/java110/cms/control/ManagerController.java
     private void deleteManager() {
         System.out.print("삭제할 번호? ");
         int no = Integer.parseInt(keyIn.nextLine());
@@ -100,6 +113,7 @@ public class ManagerController {
             return;
         }
         
+<<<<<<< HEAD:java110-project/src/main/java/bitcamp/java110/cms/control/ManagerController.java
         Manager manager = (Manager)managers.get(no);
         
         System.out.printf("이름: %s\n", manager.getName());
@@ -108,6 +122,15 @@ public class ManagerController {
         System.out.printf("직위: %s\n", manager.getPosition());
         System.out.printf("전화: %s\n", manager.getTel());
        
+=======
+        Manager m = (Manager)managers.get(no);
+        
+        System.out.printf("이름: %s\n", m.getName());
+        System.out.printf("이메일: %s\n", m.getEmail());
+        System.out.printf("암호: %s\n", m.getPassword());
+        System.out.printf("직위: %s\n", m.getPosition());
+        System.out.printf("전화: %s\n", m.getTel());
+>>>>>>> b1:java110-project/src/main/java/bitcamp/java110/cms/control/ManagerController.java
     }
     
 }
