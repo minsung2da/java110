@@ -1,22 +1,12 @@
 package bitcamp.java110.cms.util;
 
-<<<<<<< HEAD
-public class ArrayList {
-    
-    //개별적으로 관리해야할 값이라면 인스턴스 변수로 사용하라
-    Object[] list = new Object[5];
-    int index = 0;
-    
-    public void add(Object obj) {
-=======
 public class ArrayList<T> {
     
     // 객별적으로 관리해야 할 값이라면 인스턴스 변수를 사용하라!
-    Object[] list = new Object[5];
-    int index = 0;
+    private Object[] list = new Object[5];
+    private int index = 0;
     
     public void add(T obj) {
->>>>>>> b1
         if (index == list.length) {
             increaseStorage();
         }
@@ -46,25 +36,22 @@ public class ArrayList<T> {
         return index;
     }
 
-<<<<<<< HEAD
-    public Object get(int no) {
-=======
+    @SuppressWarnings("unchecked")
     public T get(int no) {
->>>>>>> b1
         if (no < 0 || no >= index) {
             return null;
         }
         
-<<<<<<< HEAD
-        return list[no];
-    }
-    
-}
-=======
         return (T)list[no];
     }
     
 }
 
 
->>>>>>> b1
+
+
+
+
+
+
+

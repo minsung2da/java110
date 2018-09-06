@@ -16,8 +16,5 @@ public class Manager extends Member {
     public void setTel(String tel) {
         this.tel = tel;
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> b1
+

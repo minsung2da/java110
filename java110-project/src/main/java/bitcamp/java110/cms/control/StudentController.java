@@ -3,27 +3,17 @@ package bitcamp.java110.cms.control;
 import java.util.Scanner;
 
 import bitcamp.java110.cms.domain.Student;
-import bitcamp.java110.cms.util.ArrayList;
+import bitcamp.java110.cms.util.LinkedList;
 
 public class StudentController {
 
-<<<<<<< HEAD:java110-project/src/main/java/bitcamp/java110/cms/control/StudentController.java
-    private  ArrayList students = new ArrayList();
-    public Scanner keyIn;
-    public StudentController(Scanner keyIn) {
-        this.keyIn = keyIn;
-    }
-    
-    
-=======
-    private ArrayList students = new ArrayList();
+    private LinkedList<Student> students = new LinkedList<>();
     public Scanner keyIn;
     
     public StudentController(Scanner keyIn) {
         this.keyIn = keyIn;
     }
     
->>>>>>> b1:java110-project/src/main/java/bitcamp/java110/cms/control/StudentController.java
     public void serviceStudentMenu() {
         while (true) {
             System.out.print("학생 관리> ");
@@ -46,7 +36,7 @@ public class StudentController {
     
     private void printStudents() {
         for (int i = 0; i < students.size(); i++) {
-            Student s = (Student)students.get(i);
+            Student s = students.get(i);
             System.out.printf("%d: %s, %s, %s, %s, %b, %s\n",
                     i,
                     s.getName(), 
@@ -112,7 +102,7 @@ public class StudentController {
             return;
         }
         
-        Student student = (Student)students.get(no);
+        Student student = students.get(no);
         
         System.out.printf("이름: %s\n", student.getName());
         System.out.printf("이메일: %s\n", student.getEmail());
@@ -122,11 +112,7 @@ public class StudentController {
         System.out.printf("재직여부: %b\n", student.isWorking());
     }
     
-<<<<<<< HEAD:java110-project/src/main/java/bitcamp/java110/cms/control/StudentController.java
-     { // 인스턴스 블럭, 생성자 호출 전에 호출 , 인스턴스 블럭이 여러개 있으면 여러개 호출된 뒤에 생성자호출
-=======
     { // 인스턴스 블록
->>>>>>> b1:java110-project/src/main/java/bitcamp/java110/cms/control/StudentController.java
         Student s = new Student();
         s.setName("a");
         students.add(s);
@@ -148,4 +134,25 @@ public class StudentController {
         students.add(s);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

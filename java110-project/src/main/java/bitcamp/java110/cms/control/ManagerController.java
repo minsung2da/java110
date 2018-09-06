@@ -3,21 +3,15 @@ package bitcamp.java110.cms.control;
 import java.util.Scanner;
 
 import bitcamp.java110.cms.domain.Manager;
-import bitcamp.java110.cms.util.ArrayList;
+import bitcamp.java110.cms.util.LinkedList;
 
 public class ManagerController {
 
-    private ArrayList managers = new ArrayList();
+    private LinkedList<Manager> managers = new LinkedList<>();
     public Scanner keyIn;
-<<<<<<< HEAD:java110-project/src/main/java/bitcamp/java110/cms/control/ManagerController.java
-    public ManagerController(Scanner keyIn) {
-        this.keyIn = keyIn;
-        
-=======
     
     public ManagerController(Scanner keyIn) {
         this.keyIn = keyIn;
->>>>>>> b1:java110-project/src/main/java/bitcamp/java110/cms/control/ManagerController.java
     }
     
     public void serviceManagerMenu() {
@@ -42,14 +36,14 @@ public class ManagerController {
     
     private void printManagers() {
         for (int i = 0; i < managers.size(); i++) {
-            Manager s = (Manager)managers.get(i);
+            Manager s = managers.get(i);
             System.out.printf("%d: %s, %s, %s, %s, %s\n",
                     i,
                     s.getName(), 
                     s.getEmail(), 
                     s.getPassword(), 
-                    s.getPosition(),
-                    s.getTel());
+                    s.getTel(),
+                    s.getPosition());
         }
     }
     
@@ -66,17 +60,12 @@ public class ManagerController {
             System.out.print("암호? ");
             m.setPassword(keyIn.nextLine());
             
-            System.out.print("직위? ");
-            m.setPosition(keyIn.nextLine());
-            
             System.out.print("전화? ");
             m.setTel(keyIn.nextLine());
             
+            System.out.print("직위? ");
+            m.setPosition(keyIn.nextLine());
             
-<<<<<<< HEAD:java110-project/src/main/java/bitcamp/java110/cms/control/ManagerController.java
-            
-=======
->>>>>>> b1:java110-project/src/main/java/bitcamp/java110/cms/control/ManagerController.java
             managers.add(m);
             
             System.out.print("계속 하시겠습니까?(Y/n) ");
@@ -85,11 +74,7 @@ public class ManagerController {
                 break;
         }
     }
-<<<<<<< HEAD:java110-project/src/main/java/bitcamp/java110/cms/control/ManagerController.java
-
-=======
     
->>>>>>> b1:java110-project/src/main/java/bitcamp/java110/cms/control/ManagerController.java
     private void deleteManager() {
         System.out.print("삭제할 번호? ");
         int no = Integer.parseInt(keyIn.nextLine());
@@ -113,25 +98,12 @@ public class ManagerController {
             return;
         }
         
-<<<<<<< HEAD:java110-project/src/main/java/bitcamp/java110/cms/control/ManagerController.java
-        Manager manager = (Manager)managers.get(no);
-        
-        System.out.printf("이름: %s\n", manager.getName());
-        System.out.printf("이메일: %s\n", manager.getEmail());
-        System.out.printf("암호: %s\n", manager.getPassword());
-        System.out.printf("직위: %s\n", manager.getPosition());
-        System.out.printf("전화: %s\n", manager.getTel());
-       
-=======
-        Manager m = (Manager)managers.get(no);
+        Manager m = managers.get(no);
         
         System.out.printf("이름: %s\n", m.getName());
         System.out.printf("이메일: %s\n", m.getEmail());
         System.out.printf("암호: %s\n", m.getPassword());
         System.out.printf("직위: %s\n", m.getPosition());
         System.out.printf("전화: %s\n", m.getTel());
->>>>>>> b1:java110-project/src/main/java/bitcamp/java110/cms/control/ManagerController.java
     }
-    
 }
-     

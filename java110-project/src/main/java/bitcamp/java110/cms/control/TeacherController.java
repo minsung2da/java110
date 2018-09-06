@@ -3,11 +3,11 @@ package bitcamp.java110.cms.control;
 import java.util.Scanner;
 
 import bitcamp.java110.cms.domain.Teacher;
-import bitcamp.java110.cms.util.ArrayList;
+import bitcamp.java110.cms.util.LinkedList;
 
 public class TeacherController {
     
-    private ArrayList<Teacher> teachers = new ArrayList<>();
+    private LinkedList<Teacher> teachers = new LinkedList<>();
     public Scanner keyIn;
     
     public TeacherController(Scanner keyIn) {
@@ -112,4 +112,3 @@ public class TeacherController {
         System.out.printf("강의과목: %s\n", t.getSubjects());
     }
 }
-
