@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
-import bitcamp.java110.cms.control.ManagerControler;
-import bitcamp.java110.cms.control.StudentControler;
-import bitcamp.java110.cms.control.TeacherControler;
+import bitcamp.java110.cms.control.ManagerController;
+import bitcamp.java110.cms.control.StudentController;
+import bitcamp.java110.cms.control.TeacherController;
 
 public class App {
     
@@ -11,19 +11,25 @@ public class App {
 
     public static void main(String[] args) {
         
-        StudentControler.keyIn = keyIn;
-        TeacherControler.keyIn = keyIn;
-        ManagerControler.keyIn = keyIn;
+        StudentController sc = new StudentController(keyIn);
+        sc.keyIn = keyIn;
+        
+        TeacherController tc = new TeacherController(keyIn);
+        tc.keyIn = keyIn;
+        
+        ManagerController mc = new ManagerController(keyIn);
+        mc.keyIn = keyIn;
+        
         while (true) {
             String menu = promptMenu();
             
             if (menu.equals("1")) {
-               StudentControler.serviceStudentMenu();
+               sc.serviceStudentMenu();
             } else if (menu.equals("2")) {
-                TeacherControler.serviceTeacherMenu();
+               tc.serviceTeacherMenu();
             }else if(menu.equals("3"))
             {
-                ManagerControler.serviceManagerMenu();
+                mc.serviceManagerMenu();
             } else if (menu.equals("0")){
                 System.out.println("안녕히 가세요!");
                 break;
