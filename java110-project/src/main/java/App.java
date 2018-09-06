@@ -1,29 +1,31 @@
 import java.util.Scanner;
 
-import bitcamp.java110.cms.control.ManagerControler;
-import bitcamp.java110.cms.control.StudentControler;
-import bitcamp.java110.cms.control.TeacherControler;
+import bitcamp.java110.cms.control.ManagerController;
+import bitcamp.java110.cms.control.StudentController;
+import bitcamp.java110.cms.control.TeacherController;
 
 public class App {
     
-
     static Scanner keyIn = new Scanner(System.in);
 
     public static void main(String[] args) {
         
-        StudentControler.keyIn = keyIn;
-        TeacherControler.keyIn = keyIn;
-        ManagerControler.keyIn = keyIn;
+        StudentController sc = new StudentController(keyIn);
+        TeacherController tc = new TeacherController(keyIn);
+        ManagerController mc = new ManagerController(keyIn);
+        
         while (true) {
             String menu = promptMenu();
             
             if (menu.equals("1")) {
-               StudentControler.serviceStudentMenu();
+                sc.serviceStudentMenu();
+                
             } else if (menu.equals("2")) {
-                TeacherControler.serviceTeacherMenu();
-            }else if(menu.equals("3"))
-            {
-                ManagerControler.serviceManagerMenu();
+                tc.serviceTeacherMenu();
+                
+            } else if (menu.equals("3")) {
+                mc.serviceManagerMenu();
+                
             } else if (menu.equals("0")){
                 System.out.println("안녕히 가세요!");
                 break;
@@ -32,7 +34,6 @@ public class App {
         
         keyIn.close();
     }
-
 
     private static String promptMenu() {
         System.out.println("[메뉴]");
@@ -57,7 +58,4 @@ public class App {
             }
         }
     }
-    
-   
 }
-
