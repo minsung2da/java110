@@ -1,6 +1,15 @@
 # java110
 비트캠프 **자바 110기** 실습 프로젝트 
 
+## v1.4
+-리플렉션 API활용
+-미니 IoC(Inversion of Control : 역제어) 컨테이너 작성
+-File 클래스로 디렉토리 및 파일 다루기
+
+## v1.3
+-인터페이스 활용 
+-App 클래스와 Controller들 사이의 사용규칙을 인터페이스로 정의한다.
+
 ## v1.2
 -자바 컬렉션 API 사용
 -직접 제작한 List,  ArrayList, LinkedList 대신에 자바에서
