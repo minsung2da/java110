@@ -5,11 +5,12 @@ import java.util.List;
 import java.util.Scanner;
 
 import bitcamp.java110.cms.annotation.Component;
+import bitcamp.java110.cms.annotation.RequestMapping;
 import bitcamp.java110.cms.domain.Teacher;
 
 
-@Component("2")
-public class TeacherController implements Controller {
+@Component("teacher")
+public class TeacherController{
     
     
   
@@ -19,8 +20,8 @@ public class TeacherController implements Controller {
    
     
     
-    
-    public void service(Scanner keyIn) {
+    @RequestMapping
+    public void teacher(Scanner keyIn) {
         while (true) {
             System.out.print("강사 관리> ");
             String command = keyIn.nextLine();

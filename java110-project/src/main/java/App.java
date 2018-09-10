@@ -1,16 +1,8 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
+
 import java.util.Scanner;
 
+import bitcamp.java110.cms.annotation.RequestMapping;
 import bitcamp.java110.cms.context.ApplicationContext;
-import bitcamp.java110.cms.control.Controller;
-import bitcamp.java110.cms.control.ManagerController;
-import bitcamp.java110.cms.control.StudentController;
-import bitcamp.java110.cms.control.TeacherController;
-import bitcamp.java110.cms.domain.Manager;
-import bitcamp.java110.cms.domain.Student;
-import bitcamp.java110.cms.domain.Teacher;
 
 
 
@@ -27,35 +19,54 @@ public class App {
 
         while (true) {
 
-            String menu = promptMenu();
+            String menu = prompt();
 
-            if (menu.equals("0")){
+            if (menu.equals("exit")){
                 System.out.println("안녕히 가세요!");
                 break;
             }
 
-            Controller controller = (Controller)iocContainer.getBean(menu);
-
+            Object controller = iocContainer.getBean(menu);
             if(controller!=null)
             {
-                controller.service(keyIn);
+                System.out.println("해당메뉴가 없습니다.");
+                continue;
+            }
+                
 
-            } 
-
+          Method method = findRequestMapping(controller.getClass());
+          if(method == null)  
+          {
+              System.out.println("해당메뉴가 없습니다.");
+              continue;
+          }
+            
+             method.invoke(controller, keyIn);
         }
 
         keyIn.close();
     }
 
-    private static String promptMenu() {
-        System.out.println("[메뉴]");
-        System.out.println("1.학생 관리");
-        System.out.println("2.강사 관리");
-        System.out.println("3.매니저 관리");
-        System.out.println("0.종료");
-        System.out.print("메뉴 번호> ");
-       
+    private static Method findRequestMapping(Class<?> clazz) {
         
+        //=>클래스의 메서드 목록을 꺼낸다.
+        Method[] methods = clazz.getDeclaredMethods();
+        
+        //=> 매소드에서 @requestMapping 정보를 추출한다.
+        for(Method m : methods)
+        {
+        RequestMapping anno = m.getAnnotation(RequestMapping.class);
+            
+        
+        if(anno != null) // 찾았다면  이 메서드를 리턴한다.
+         return m;
+        }
+            
+        return null;
+    }
+
+    private static String prompt() { 
+        System.out.print("메뉴> ");
         return keyIn.nextLine();
     }
 
