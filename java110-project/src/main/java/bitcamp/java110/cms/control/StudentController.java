@@ -8,23 +8,16 @@ import bitcamp.java110.cms.annotation.Component;
 import bitcamp.java110.cms.annotation.RequestMapping;
 import bitcamp.java110.cms.domain.Student;
 
-
-
-@Component("student")
+@Component
 public class StudentController {
 
-    
-    
-    
     private List<Student> students = new ArrayList<>();
-  
-    
     
     public StudentController() {
         init();
     }
-  
-    @RequestMapping
+    
+    @RequestMapping("student")
     public void student(Scanner keyIn) {
         while (true) {
             System.out.print("학생 관리> ");
@@ -123,7 +116,7 @@ public class StudentController {
         System.out.printf("재직여부: %b\n", student.isWorking());
     }
     
-    private void init(){
+    private void init() {
         Student s = new Student();
         s.setName("a");
         students.add(s);
@@ -145,5 +138,11 @@ public class StudentController {
         students.add(s);
     }
 }
+
+
+
+
+
+
 
 

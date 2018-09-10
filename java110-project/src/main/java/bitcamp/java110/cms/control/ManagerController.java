@@ -8,19 +8,15 @@ import bitcamp.java110.cms.annotation.Component;
 import bitcamp.java110.cms.annotation.RequestMapping;
 import bitcamp.java110.cms.domain.Manager;
 
+@Component
+public class ManagerController { 
 
-@Component("manager") 
-public class ManagerController{
-
-  
-    
     private List<Manager> managers = new ArrayList<>();
     
+    //public ManagerController() {}
     
-    
-    //  public ManagerController(){} 생성자 생략
-    @RequestMapping
-     public void manager(Scanner keyIn) {
+    @RequestMapping("manager")
+    public void manager(Scanner keyIn) {
         while (true) {
             System.out.print("매니저 관리> ");
             String command = keyIn.nextLine();
