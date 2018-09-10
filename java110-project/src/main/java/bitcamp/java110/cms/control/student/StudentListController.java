@@ -14,10 +14,10 @@ public class StudentListController {
 
     @RequestMapping("student/list")
     public void list(Scanner keyIn) {
-         List<Student> list = App.studentDao.findAll();
+        List<Student> list = App.studentDao.findAll();
 
         for (Student s : list) {
- 
+
             System.out.printf("%s, %s, %s, %s, %b, %s\n",                 
                     s.getName(), 
                     s.getEmail(), 
@@ -27,6 +27,6 @@ public class StudentListController {
                     s.getTel());
         }
     }
-    
+
 
 }
