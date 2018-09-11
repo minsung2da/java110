@@ -6,15 +6,15 @@ import bitcamp.java110.cms.domain.Manager;
 
 
 public interface ManagerDao {
-   
 
-    public int insert(Manager manager); 
-      
-    public List<Manager> findAll();
-  
-    public Manager findByEmail(String email); 
-       
-    public int delete(String email);
-  
-    
+
+    int insert(Manager manager); 
+
+    List<Manager> findAll();
+
+    Manager findByEmail(String email); 
+
+    int delete(String email);
+
+
 }
