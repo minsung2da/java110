@@ -14,7 +14,7 @@ import bitcamp.java110.cms.domain.Student;
 
 
 
-@Component
+//@Component
 public class StudentFileDao implements StudentDao{
 
     private List<Student> list = new ArrayList<>();
