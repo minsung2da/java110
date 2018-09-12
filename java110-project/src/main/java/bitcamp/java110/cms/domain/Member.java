@@ -1,5 +1,7 @@
 package bitcamp.java110.cms.domain;
 
+import java.io.Serializable;
+
 public class Member {
     protected String name;
     protected String email;

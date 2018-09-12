@@ -1,9 +1,15 @@
 # java110
 비트캠프 **자바 110기** 실습 프로젝트 
 
+## v2.1
+-객체 Serialize(바이트 배열화+클래스정보 파일)/Deserialize(개체화) 적용
+-java.io.Serializable 인터페이스 활용
+-transient modifier 사용법
+*용어 : Serialize = marshaling / Deserialize = Unmarshaling
+
 
 ## v2.0.1
-
+-인터페이스와 구현체를 별도의 패키지로 분리
 
 
 ## v2.0

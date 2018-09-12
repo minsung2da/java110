@@ -14,7 +14,7 @@ import bitcamp.java110.cms.domain.Manager;
 
 
 
-@Component
+//@Component
 public class ManagerFileDao implements ManagerDao{
 
     private List<Manager> list = new ArrayList<>();
