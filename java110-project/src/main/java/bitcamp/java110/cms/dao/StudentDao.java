@@ -8,7 +8,7 @@ import bitcamp.java110.cms.domain.Student;
 
 public interface StudentDao {
 
-  int insert(Student student); 
+  int insert(Student student) throws DuplicationDaoException, MandatoryValueDaoException; 
  
   List<Student> findAll();
   

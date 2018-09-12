@@ -8,7 +8,7 @@ import bitcamp.java110.cms.domain.Manager;
 public interface ManagerDao {
 
 
-    int insert(Manager manager); 
+    int insert(Manager manager) throws DuplicationDaoException, MandatoryValueDaoException; 
 
     List<Manager> findAll();
 

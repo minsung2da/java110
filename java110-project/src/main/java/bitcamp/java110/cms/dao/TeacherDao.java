@@ -9,7 +9,7 @@ import bitcamp.java110.cms.domain.Teacher;
 @Component
 public interface TeacherDao {
 
-    int insert(Teacher teacher); 
+    int insert(Teacher teacher)throws DuplicationDaoException, MandatoryValueDaoException; 
 
     List<Teacher> findAll();
 
