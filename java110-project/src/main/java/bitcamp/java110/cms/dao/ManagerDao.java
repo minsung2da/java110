@@ -11,10 +11,10 @@ public interface ManagerDao {
     int insert(Manager manager) throws DuplicationDaoException, MandatoryValueDaoException; 
 
     List<Manager> findAll();
-
+    default Manager findByNo(int no) {return null;}
     Manager findByEmail(String email); 
-
-    int delete(String email);
+    default int delete(String email) {return 0;}
+    default int deleteByNo(int no) {return 0;}
 
 
 }
