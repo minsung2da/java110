@@ -1,6 +1,14 @@
 # java110
 비트캠프 **자바 110기** 실습 프로젝트 
 
+## v2.5
+-Spring IoC 컨테이너 도입
+
+## v2.4
+-DB 커넥션 공유하기
+-DB 연결 객체를 재사용하여 가비지를 줄이고, 실행 속도를 높이기 위함 
+
+
 ## v2.3
 -DAO에 JDBC적용
 -Data Modeling과 forward engineering 수행
