@@ -16,7 +16,7 @@ import bitcamp.java110.cms.dao.MandatoryValueDaoException;
 import bitcamp.java110.cms.dao.StudentDao;
 import bitcamp.java110.cms.domain.Student;
 
-//@Component
+@Component
 public class StudentFile2Dao implements StudentDao {
     
     static String defaultFilename = "data/student2.dat";
@@ -24,7 +24,7 @@ public class StudentFile2Dao implements StudentDao {
     String filename;
     private List<Student> list = new ArrayList<>();
     
-   
+    @SuppressWarnings("unchecked")
     public StudentFile2Dao(String filename) {
         this.filename = filename;
         
@@ -35,15 +35,6 @@ public class StudentFile2Dao implements StudentDao {
             ObjectInputStream in = new ObjectInputStream(in1);
         ){
             list = (List<Student>)in.readObject();
-//            while (true) {
-//                try {
-//                    Student m = (Student)in.readObject();
-//                    list.add(m);
-//                } catch (Exception e) {
-//                    //e.printStackTrace();
-//                    break;
-//                }
-//            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -61,25 +52,21 @@ public class StudentFile2Dao implements StudentDao {
             ObjectOutputStream out = new ObjectOutputStream(out1);
         ){
             out.writeObject(list);
-//            for (Student m : list) {
-//                out.writeObject(m);
-//            }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
     
     public int insert(Student student) {
-        if(student.getName().length()==0||
-                student.getEmail().length()==0||
-                student.getPassword().length()==0)
-        {
+        // 필수 입력 항목이 비었을 때,
+        if (student.getName().length() == 0 ||
+            student.getEmail().length() == 0 ||
+            student.getPassword().length() == 0) {
             throw new MandatoryValueDaoException();
         }
-
         for (Student item : list) {
             if (item.getEmail().equals(student.getEmail())) {
-              throw new DuplicationDaoException();
+                throw new DuplicationDaoException();
             }
         }
         list.add(student);
@@ -111,4 +98,11 @@ public class StudentFile2Dao implements StudentDao {
         return 0;
     }
 }
+
+
+
+
+
+
+
 

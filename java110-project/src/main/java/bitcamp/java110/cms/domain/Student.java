@@ -1,12 +1,8 @@
 package bitcamp.java110.cms.domain;
 
-import java.io.Serializable;
-
-
-public class Student extends Member implements Serializable {
- 
+public class Student extends Member {
     private static final long serialVersionUID = 1L;
-   
+    
     protected String school;
     protected boolean working;
     protected String tel;

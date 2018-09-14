@@ -14,8 +14,21 @@ import java.lang.annotation.Target;
  *            Reflection API로 클래스에서 애노테이션 정보를 추출할 수 있다.
  */
 
-@Target(ElementType.TYPE) // 클래스에만 붙일 수 있다
+@Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME) 
 public @interface Component {
     String value() default "";
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

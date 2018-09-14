@@ -13,21 +13,16 @@ import bitcamp.java110.cms.domain.Manager;
 public class ManagerListController { 
 
     ManagerDao managerDao;
-
+    
     @Autowired
-    public void setManagerDao(ManagerDao managerDao)
-    {
+    public void setManagerDao(ManagerDao managerDao) {
         this.managerDao = managerDao;
     }
 
-
     @RequestMapping("manager/list")
-
     public void list(Scanner keyIn) {
-
         List<Manager> list = managerDao.findAll();
-
-        for(Manager s : list) {
+        for (Manager s : list) {
             System.out.printf("%d, %s, %s, %s, %s, %s\n",
                     s.getNo(),
                     s.getName(), 
@@ -37,5 +32,5 @@ public class ManagerListController {
                     s.getPosition());
         }
     }
-
+    
 }
