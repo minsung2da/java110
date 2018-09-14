@@ -16,9 +16,7 @@ import bitcamp.java110.cms.util.DataSource;
 
 @Component
 public class StudentMysqlDao implements StudentDao {
-    
- 
-    
+
     DataSource dataSource;
     
     @Autowired
@@ -26,17 +24,12 @@ public class StudentMysqlDao implements StudentDao {
         this.dataSource = dataSource;
     }
 
-    
-    
-    
-    
     public int insert(Student student) {
         Connection con = null;
         Statement stmt = null;
         
         try {
-            
-            con =dataSource.getConnection();
+            con = dataSource.getConnection();
             
             con.setAutoCommit(false);
 
@@ -66,12 +59,11 @@ public class StudentMysqlDao implements StudentDao {
             return 1;
             
         } catch (Exception e) {
-            try { con.rollback();} catch(Exception e2){}
+            try {con.rollback();} catch (Exception e2) {}
             throw new DaoException(e);
             
         } finally {
             try {stmt.close();} catch (Exception e) {}
-           
         }
     }
     
@@ -84,7 +76,7 @@ public class StudentMysqlDao implements StudentDao {
         ResultSet rs = null;
         
         try {
-            con =dataSource.getConnection();
+            con = dataSource.getConnection();
             
             stmt = con.createStatement();
             
@@ -113,7 +105,6 @@ public class StudentMysqlDao implements StudentDao {
         } finally {
             try {rs.close();} catch (Exception e) {}
             try {stmt.close();} catch (Exception e) {}
-            
         }
         return list;
     }
@@ -157,7 +148,6 @@ public class StudentMysqlDao implements StudentDao {
         } finally {
             try {rs.close();} catch (Exception e) {}
             try {stmt.close();} catch (Exception e) {}
-          
         }
     }
     
@@ -201,7 +191,6 @@ public class StudentMysqlDao implements StudentDao {
         } finally {
             try {rs.close();} catch (Exception e) {}
             try {stmt.close();} catch (Exception e) {}
-            
         }
     }
     
@@ -228,12 +217,11 @@ public class StudentMysqlDao implements StudentDao {
             return 1;
             
         } catch (Exception e) {
-            try { con.rollback();} catch(Exception e2){}
+            try {con.rollback();} catch (Exception e2) {}
             throw new DaoException(e);
             
         } finally {
             try {stmt.close();} catch (Exception e) {}
-            
         }
     }
 }

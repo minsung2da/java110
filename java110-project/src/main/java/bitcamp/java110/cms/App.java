@@ -12,19 +12,18 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         
-        //Spring IoC 컨테이너 사용
-        
+        // Spring IoC 컨테이너 사용
         ClassPathXmlApplicationContext iocContainer = 
                 new ClassPathXmlApplicationContext(
                         "bitcamp/java110/cms/conf/application-context.xml");
         
-        //IoC 컨테이너가 생성한 객체 조회하기
-        System.out.println("-------------------");
-      String[] nameList=  iocContainer.getBeanDefinitionNames();
-        for(String name : nameList) {
+        // IoC 컨테이너가 생성한 객체 조회하기
+        System.out.println("------------------------");
+        String[] nameList = iocContainer.getBeanDefinitionNames();
+        for (String name : nameList) {
             System.out.println(name);
         }
-        System.out.println("-------------------");
+        System.out.println("------------------------");
         
         RequestMappingHandlerMapping requestHandlerMap = 
                 new RequestMappingHandlerMapping();
@@ -62,7 +61,6 @@ public class App {
         
         keyIn.close();
         iocContainer.close();
-        
     }
 
     private static String prompt() {
