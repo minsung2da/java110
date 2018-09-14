@@ -5,8 +5,6 @@ import org.junit.Test;
 
 import bitcamp.java110.cms.App;
 
-import static org.junit.Assert.*;
-
 public class AppTest {
     @Test public void testAppHasAGreeting() {
         App classUnderTest = new App();
