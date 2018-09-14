@@ -29,7 +29,8 @@ public class StudentListController {
 
         for (Student s : list) {
 
-            System.out.printf("%s, %s, %s, %s, %b, %s\n",                 
+            System.out.printf("%d, %s, %s, %s, %s, %b, %s\n",                 
+                    s.getNo(),
                     s.getName(), 
                     s.getEmail(), 
                     s.getPassword(), 
