@@ -51,16 +51,47 @@ public class ServerApp {
         ServerSocket serverSocket = new ServerSocket(8888);
         System.out.println("서버 실행 중...");
         
-        while (true) {
+     while (true) {
+       Socket socket =   serverSocket.accept();
+       RequestWorker worker = new RequestWorker(socket);
+       /* Thread t = new Thread(worker);
+        t.start();*/
+        new Thread(worker).start();
+        
+        
+        }
+    }
+    
+    public static void main(String[] args) throws Exception {
+        ServerApp serverApp = new ServerApp();
+        serverApp.service();
+    }
+    
+    
+    class RequestWorker extends Thread{
+
+        Socket socket;
+        
+        public RequestWorker(Socket socket) {
+            
+            this.socket = socket;
+        }
+        
+        
+        
+        @Override
+        public void run() {
+         //이 메서드에서 main thread에서 분리하여 독립적으로 수행할 코드를 둔다.
             try (
-                    Socket socket = serverSocket.accept();
+              // 여기에 값이 있어야만 close 를 자동 호출하기 때문에 위의 인스턴스변수는 close를 호출 못함; finally 적는 것보다 간단하게
+                    Socket socket = this.socket;
                     PrintWriter out = new PrintWriter(
                             new BufferedOutputStream(
                                     socket.getOutputStream()));
                     BufferedReader in = new BufferedReader(
                             new InputStreamReader(
                                     socket.getInputStream()));
-                    ) {
+              ) {
                 System.out.println(in.readLine());
                 out.println("OK:강사"); out.flush();
                 
@@ -100,15 +131,17 @@ public class ServerApp {
                     out.flush();
                 }
                 
+            }//try
+            catch(Exception e) {
+                System.out.println(e.getMessage());
             }
-        }
-    }
+            
+        }//run
+
+        
+    }//requestworker
     
-    public static void main(String[] args) throws Exception {
-        ServerApp serverApp = new ServerApp();
-        serverApp.service();
-    }
-}
+}//class
 
 
 
