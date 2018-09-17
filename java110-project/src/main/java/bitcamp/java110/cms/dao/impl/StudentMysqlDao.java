@@ -67,7 +67,7 @@ public class StudentMysqlDao implements StudentDao {
         }
     }
     
-    public List<Student> findAll() throws DaoException{
+    public List<Student> findAll() throws DaoException {
         
         ArrayList<Student> list = new ArrayList<>();
         
@@ -151,7 +151,7 @@ public class StudentMysqlDao implements StudentDao {
         }
     }
     
-    public Student findByNo(int no) throws DaoException{
+    public Student findByNo(int no) throws DaoException {
         Connection con = null;
         Statement stmt = null;
         ResultSet rs = null;

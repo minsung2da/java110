@@ -26,7 +26,6 @@ public class TeacherListController {
     public void list(Request request, Response response) {
         
         PrintWriter out = response.getWriter();
-        
         List<Teacher> list = teacherDao.findAll();
         
         for (Teacher t : list) {

@@ -23,20 +23,19 @@ public class StudentAddController {
 
     @RequestMapping("student/add")
     public void add(Request request, Response response) {
-       
-        Student s = new Student();
+        Student m = new Student();
+        m.setName(request.getParameter("name"));
+        m.setEmail(request.getParameter("email"));
+        m.setPassword(request.getParameter("password"));
+        m.setTel(request.getParameter("tel"));
+        m.setSchool(request.getParameter("school"));
+        m.setWorking(Boolean.parseBoolean(request.getParameter("working")));
         
-        s.setName(request.getParameter("name"));
-        s.setEmail(request.getParameter("email"));
-        s.setPassword(request.getParameter("password"));
-        s.setTel(request.getParameter("tel"));
-        s.setSchool(request.getParameter("school"));
-        s.setWorking(request.getParameter("work"));
-        
-        studentDao.insert(s);
         PrintWriter out = response.getWriter();
-        out.println("등록 되었습니다");
-        
-        
+        if (studentDao.insert(m) > 0) {
+            out.println("저장하였습니다.");
+        } else {
+            out.println("같은 이메일의 학생이 존재합니다.");
+        }
     }
 }

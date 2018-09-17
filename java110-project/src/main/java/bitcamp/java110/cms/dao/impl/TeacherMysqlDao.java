@@ -24,7 +24,7 @@ public class TeacherMysqlDao implements TeacherDao {
         this.dataSource = dataSource;
     }
 
-    public int insert(Teacher teacher) throws DaoException{
+    public int insert(Teacher teacher) throws DaoException {
         Connection con = null;
         Statement stmt = null;
         
@@ -67,7 +67,7 @@ public class TeacherMysqlDao implements TeacherDao {
         }
     }
     
-    public List<Teacher> findAll() throws DaoException{
+    public List<Teacher> findAll() throws DaoException {
         
         ArrayList<Teacher> list = new ArrayList<>();
         

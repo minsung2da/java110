@@ -24,7 +24,7 @@ public class ManagerMysqlDao implements ManagerDao {
         this.dataSource = dataSource;
     }
 
-    public int insert(Manager manager) throws DaoException{
+    public int insert(Manager manager) throws DaoException {
         Statement stmt = null;
         
         Connection con = null;

@@ -25,13 +25,8 @@ public class StudentListController {
     @RequestMapping("student/list")
     public void list(Request request, Response response) {
         
-        
-        
         PrintWriter out = response.getWriter();
-        
         List<Student> list = studentDao.findAll();
-
-
         for (Student s : list) {
             out.printf("%d, %s, %s, %s, %b\n",
                     s.getNo(),

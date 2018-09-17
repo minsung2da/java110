@@ -23,8 +23,8 @@ public class ManagerListController {
     }
 
     @RequestMapping("manager/list")
-    public void list(Request request , Response response) {
-       PrintWriter out = response.getWriter();
+    public void list(Request request, Response response) {
+        PrintWriter out = response.getWriter();
         
         List<Manager> list = managerDao.findAll();
         for (Manager s : list) {
@@ -37,3 +37,15 @@ public class ManagerListController {
     }
     
 }
+
+
+
+
+
+
+
+
+
+
+
+

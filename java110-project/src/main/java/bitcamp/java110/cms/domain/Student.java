@@ -5,7 +5,6 @@ public class Student extends Member {
     
     protected String school;
     protected boolean working;
-   
     
     public String getSchool() {
         return school;
@@ -19,5 +18,4 @@ public class Student extends Member {
     public void setWorking(boolean working) {
         this.working = working;
     }
-  
 }

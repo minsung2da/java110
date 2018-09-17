@@ -29,9 +29,7 @@ public class ClientApp {
             
             while (true) {
                 String requestLine = prompt();
-                out.println(requestLine); 
-                out.flush();
-                
+                out.println(requestLine); out.flush();
                 while (true) {
                     String responseLine = in.readLine();
                     System.out.println(responseLine);
