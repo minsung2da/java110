@@ -53,6 +53,7 @@ public class ServerApp {
         
      while (true) {
        Socket socket =   serverSocket.accept();
+       System.out.println("클라이언트가 연결 됐음");
        RequestWorker worker = new RequestWorker(socket);
        /* Thread t = new Thread(worker);
         t.start();*/
@@ -92,18 +93,10 @@ public class ServerApp {
                             new InputStreamReader(
                                     socket.getInputStream()));
               ) {
-                System.out.println(in.readLine());
-                out.println("OK:강사"); out.flush();
-                
-                while (true) {
-                    String requestLine = in.readLine();
-                    if (requestLine.equals("EXIT")) {
-                        out.println("goodbye");
-                        out.println();
-                        out.flush();
-                        break;
-                    }
-                    
+              
+                     String requestLine = in.readLine();
+                     System.out.println("클라이언트 요청 받았음");
+
                     // 요청 객체 준비
                     Request request = new Request(requestLine);
                     
@@ -116,7 +109,7 @@ public class ServerApp {
                         out.println("해당 요청을 처리할 수 없습니다.");
                         out.println();
                         out.flush();
-                        continue;
+                        return;
                     }
                     
                     try {
@@ -129,12 +122,15 @@ public class ServerApp {
                     }
                     out.println();
                     out.flush();
-                }
+                  
                 
-            }//try
-            catch(Exception e) {
-                System.out.println(e.getMessage());
-            }
+                 }//try
+                  catch(Exception e) {
+                  System.out.println(e.getMessage());
+                 }finally {
+                     System.out.println("클라이언트에게 응답했음");
+                     System.out.println("클라이언트와 연결을 끊음");
+                 }
             
         }//run
 
