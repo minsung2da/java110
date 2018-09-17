@@ -1,6 +1,6 @@
 package bitcamp.java110.cms.control.manager;
 
-import java.util.Scanner;
+import java.io.PrintWriter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -8,6 +8,8 @@ import org.springframework.stereotype.Component;
 import bitcamp.java110.cms.annotation.RequestMapping;
 import bitcamp.java110.cms.dao.ManagerDao;
 import bitcamp.java110.cms.domain.Manager;
+import bitcamp.java110.cms.server.Request;
+import bitcamp.java110.cms.server.Response;
 
 @Component
 public class ManagerDetailController { 
@@ -20,10 +22,11 @@ public class ManagerDetailController {
     }
 
     @RequestMapping("manager/detail")
-    public void detail(Scanner keyIn) {
-        System.out.print("조회할 매니저의 번호? ");
-        int no = Integer.parseInt(keyIn.nextLine());
+    public void detail(Request request , Response response) {
+     int no = Integer.parseInt(request.getParameter("no"));
         Manager m = managerDao.findByNo(no);
+        
+        PrintWriter out = response.getWriter();
         
         if (m == null) {
             System.out.println("해당 번호의 매니저가 없습니다!");
