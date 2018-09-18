@@ -17,7 +17,9 @@ public class ClientApp {
             //사용자로 부터 명령어를 입력 받는다
             String requestLine = prompt();
             if(requestLine.toLowerCase().equals("exit"))
+            { System.out.println("종료");
               break;
+            }
         try (
             // 서버에 연결하기
             Socket socket = new Socket("localhost", 8888);

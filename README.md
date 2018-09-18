@@ -9,6 +9,11 @@
 ## v2.9
 -웹브라우저를 클라이언트로 사용하기
 -서버에 HTTP 프로토콜을 처리하는 기능 추가
+-Command 패턴으로 분할된 메서드를 한 클래스로 합치기
+-관련된 컨트롤러 클래스를 한 클래스로 만든다.
+ + ManagerListController, ManagerAddController,ManagerDetailController, ManagerDeleteController 클래스를 ManagerController 로 합친다.
+ + 학생 관리와 강사 관리도 마찬가지다.
+ + 각각의 컨트롤러가 크지 않을 때는 관리하기 쉽게 한 클래스로 합치기도 한다.
 
 ## v2.8
 -멀티스레드 적용하기(Connection-Oreinted에서 Stateless 방식으로 요청 처리)
