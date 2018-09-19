@@ -39,7 +39,7 @@ public class Listener02 implements ServletRequestListener {
     public void requestDestroyed(ServletRequestEvent sre) {
        //클라이언트에게 응답을 완료했을 때 호출된다.
 
-      System.out.println("Lietener01.requestDestroyed");
+      System.out.println("Listener02.requestDestroyed");
         
     }
     
