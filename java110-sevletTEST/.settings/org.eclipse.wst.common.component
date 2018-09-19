@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+	<wb-module deploy-name="java110-sevletTEST">
+		<property name="context-root" value="java110-sevletTEST"/>
+	</wb-module>
+</project-modules>
