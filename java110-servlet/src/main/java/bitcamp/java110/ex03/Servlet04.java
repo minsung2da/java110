@@ -1,9 +1,6 @@
-//클라이언트로 출력하기  - Binary 출력 (.txt를 일반 에디터로 편집이 안되면 다 binary)
-//                               ex) html, gradle, cs,js xml같이 메모장으로 편집가능한건 txt
-//                               ex) ppt, exl , avi img 같이 편집 불가능한걸 binary
-
-//javax.servlet.Servlet 인터페이스 구현
-
+/* 클라이언트로 출력하기 - Binary 출력
+ * 
+ */
 package bitcamp.java110.ex03;
 
 import java.io.BufferedInputStream;
@@ -18,44 +15,67 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 
-
-
 @WebServlet("/ex03/servlet04")
-public class Servlet04 extends GenericServlet{
-
-   
+public class Servlet04 extends GenericServlet {
     private static final long serialVersionUID = 1L;
 
     @Override
     public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
-
-             
-      //웹 애플리케이션 정보를 다루는 객체를 얻는다
-      ServletContext ctx = this.getServletContext();
-      
-      // ServletContext 객체를 통해 현재 웹 애플리케이션의 실제 경로를 알아낸다.  
-      String filepath =  ctx.getRealPath("/WEB-INF/pic2.jpg");
         
-      res.setContentType("image/jpg");
-
-try(
-    BufferedInputStream in  = new BufferedInputStream(new FileInputStream(filepath));
+        // 웹 애플리케이션 정보를 다루는 객체를 얻는다.
+        ServletContext ctx = this.getServletContext();
         
-    BufferedOutputStream out = new BufferedOutputStream(res.getOutputStream());
+        // ServletContext 객체를 통해 현재 웹 애플리케이션의 실제 경로를 알아낸다.
+        String filepath = ctx.getRealPath("/WEB-INF/pic2.jpeg");
         
-   ){
-    int b;
-    
-    while((b = in.read())!=-1)
-    {
-      out.write(b);
+        res.setContentType("image/jpeg");
+        
+        try (
+            BufferedInputStream in = 
+                    new BufferedInputStream(new FileInputStream(filepath));
+            BufferedOutputStream out = 
+                new BufferedOutputStream(res.getOutputStream());
+        ) {
+            int b;
+            
+            while ((b = in.read()) != -1) {
+                out.write(b);
+            }
+            
+            out.flush();
+        }
     }
-
-     out.flush();
-    
-    }
-
-  }
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
