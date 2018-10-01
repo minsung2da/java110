@@ -37,7 +37,7 @@ public class ManagerListServlet extends HttpServlet {
         out.println("<head>");
         out.println("<meta charset='UTF-8'>");
         out.println("<title>매니저 관리</title>");
-        out.println("<link rel='stylesheet' href='../css/common.css'>"); 
+        out.println("<link rel='stylesheet' href='../css/common.css'>");
         out.println("<style>");
         out.println("table, th, td {");
         out.println("    border: 1px solid gray;");
@@ -46,7 +46,7 @@ public class ManagerListServlet extends HttpServlet {
         out.println("</head>");
         out.println("<body>");
         
-        //페이지 머리말 포함하기
+        // 페이지 머리말 포함하기
         RequestDispatcher rd = request.getRequestDispatcher("/header");
         rd.include(request, response);
         
@@ -73,11 +73,9 @@ public class ManagerListServlet extends HttpServlet {
         out.println("</tbody>");
         out.println("</table>");
         
-        //페이지 꼬리말 포함하기
+        // 페이지 꼬리말 포함하기
         rd = request.getRequestDispatcher("/footer");
         rd.include(request, response);
-        
-        
         
         out.println("</body>");
         out.println("</html>");

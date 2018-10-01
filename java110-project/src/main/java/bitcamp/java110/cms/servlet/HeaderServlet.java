@@ -18,21 +18,17 @@ public class HeaderServlet extends HttpServlet {
             HttpServletRequest request, 
             HttpServletResponse response) throws ServletException, IOException {
         
-        
         PrintWriter out = response.getWriter();
         
         out.println("<header>");
-        out.println(" <h1>비트캠프</h1>");
-         
-        out.println(" <ul>");
-        out.println("   <li><a href='/student/list'>학생관리</a></li>");
-        out.println("   <li><a href='/teacher/list'>강사관리</a></li>");
-        out.println("   <li><a href='/manager/list'>매니저관리</a></li>");
-        out.println(" </ul>");
+        out.println("    <h1>비트캠프</h1>");
+            
+        out.println("    <ul>");
+        out.println("        <li><a href='/student/list'>학생관리</a></li>");
+        out.println("        <li><a href='/teacher/list'>강사관리</a></li>");
+        out.println("        <li><a href='/manager/list'>매니저관리</a></li>");
+        out.println("    </ul>");
         out.println("</header>");
-        
-        
-        
     }
 }
 

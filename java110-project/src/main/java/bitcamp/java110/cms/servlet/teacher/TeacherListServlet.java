@@ -46,10 +46,8 @@ public class TeacherListServlet extends HttpServlet {
         out.println("</head>");
         out.println("<body>");
         
-        //페이지 머리말 포함하기
         RequestDispatcher rd = request.getRequestDispatcher("/header");
         rd.include(request, response);
-        
         
         out.println("<h1>강사 목록</h1>");
         
@@ -77,8 +75,6 @@ public class TeacherListServlet extends HttpServlet {
         out.println("</tbody>");
         out.println("</table>");
         
-        
-        //페이지 꼬리말 포함하기
         rd = request.getRequestDispatcher("/footer");
         rd.include(request, response);
         
