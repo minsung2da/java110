@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import bitcamp.java110.cms.domain.Manager;
 import bitcamp.java110.cms.domain.Member;
+import bitcamp.java110.cms.domain.Teacher;
 
 @WebServlet("/header")
 public class HeaderServlet extends HttpServlet {
@@ -33,6 +35,13 @@ public class HeaderServlet extends HttpServlet {
         if (loginUser == null) {
             out.println("<li><a href='/auth/login'>로그인</a></li>");
         } else {
+            String loginType = "학생";
+            if(loginUser instanceof Manager) {
+                loginType = "매니저";
+            }else if (loginUser instanceof Teacher) {
+                loginType = "강사";
+            }
+            
             out.printf("<li>%s(<a href='/auth/logout'>로그아웃</a>)</li>\n", 
                     loginUser.getName());
         }
