@@ -36,14 +36,13 @@ public class HeaderServlet extends HttpServlet {
             out.println("<li><a href='/auth/login'>로그인</a></li>");
         } else {
             String loginType = "학생";
-            if(loginUser instanceof Manager) {
+            if (loginUser instanceof Manager) {
                 loginType = "매니저";
-            }else if (loginUser instanceof Teacher) {
+            } else if (loginUser instanceof Teacher) {
                 loginType = "강사";
             }
-            
-            out.printf("<li>%s(<a href='/auth/logout'>로그아웃</a>)</li>\n", 
-                    loginUser.getName());
+            out.printf("<li>[%s]%s(<a href='/auth/logout'>로그아웃</a>)</li>\n", 
+                    loginType, loginUser.getName());
         }
         
         out.println("        <li><a href='/student/list'>학생관리</a></li>");
