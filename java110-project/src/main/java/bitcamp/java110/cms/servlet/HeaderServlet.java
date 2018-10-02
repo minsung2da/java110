@@ -25,15 +25,16 @@ public class HeaderServlet extends HttpServlet {
         
         out.println("<header>");
         out.println("    <h1>비트캠프</h1>");
-        out.println("    <ul>");
         
+        out.println("    <ul>");
+
         HttpSession session = request.getSession();
         Member loginUser = (Member)session.getAttribute("loginUser");
-        
-        if(loginUser == null) {
-           out.println("<li><a href='/auth/login'>로그인</a></li>");
-        }else {
-            out.printf("<li>%s (<a href='/auth/logout'>로그아웃)</li>", loginUser.getName());
+        if (loginUser == null) {
+            out.println("<li><a href='/auth/login'>로그인</a></li>");
+        } else {
+            out.printf("<li>%s(<a href='/auth/logout'>로그아웃</a>)</li>\n", 
+                    loginUser.getName());
         }
         
         out.println("        <li><a href='/student/list'>학생관리</a></li>");
