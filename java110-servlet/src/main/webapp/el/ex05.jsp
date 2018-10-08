@@ -9,17 +9,15 @@
 <title>EL</title>
 </head>
 <body>
-<h1>EL - 배열에서 값 꺼내기 </h1>
-<pre>
-
+<h1>EL - 배열에서 값 꺼내기</h1>
 <%
-pageContext.setAttribute("name", new String[]{"홍길동","임꺽정","유관순"});
+pageContext.setAttribute("names", new String[]{"홍길동","임꺽정","유관순"});
 %>
 
-${name[0]}<br>
-${name[1]}<br>
-${name[2]}<br>
-${name[3]}<br>
+${names[0]}<br>
+${names[1]}<br>
+${names[2]}<br>
+${names[3]}<br>
 
 </body>
 </html>

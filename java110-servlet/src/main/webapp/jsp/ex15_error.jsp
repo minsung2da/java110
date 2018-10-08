@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<p>연산자 '<%=request.getParameter("op") %>'를 지원하지 않습니다</p>
+<p>연산자 '<%=request.getParameter("op")%>'를 지원하지 않습니다!</p>
 
 </body>
 </html>
