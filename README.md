@@ -1,6 +1,11 @@
 # java110
 비트캠프 **자바 110기** 실습 프로젝트 
 
+## v5.0
+
+-JSP 액션태그 적용
+-list.jsp detail.jsp에 jsp액션태그를 적용한다.
+
 ## v4.9
 - JSP를 활용한 MVC 모델 1타입 적용
 - Servlet + JSP를 활용한 MVC 모델 2타입 적용
