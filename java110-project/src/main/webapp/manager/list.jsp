@@ -30,15 +30,23 @@ table, th, td {
 </tr>
 </thead>
 <tbody>
+
+<jsp:useBean
+     scope="request"
+     id="list"
+     class="java.util.ArrayList"
+     type="java.util.List<Manager>"
+      />
+     
 <%
-List<Manager> list = (List<Manager>) request.getAttribute("list");
-for (Manager m : list) {
+for (Manager s : list) {
 %>
 <tr>
-    <td><%=m.getNo()%></td>
-    <td><a href='detail?no=<%=m.getNo()%>'><%=m.getName()%></a></td>
-    <td><%=m.getEmail()%></td>
-    <td><%=m.getPosition()%></td>
+    <td><%=s.getNo()%></td>
+    <td><a href='detail?no=<%=s.getNo()%>'><%=s.getName()%></a></td>
+    <td><%=s.getEmail()%></td>
+    <td><%=s.getPosition()%></td>
+   
 </tr>
 <%
 }
