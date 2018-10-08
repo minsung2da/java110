@@ -1,6 +1,4 @@
 <%@page import="bitcamp.java110.cms.domain.Manager"%>
-<%@page import="java.util.List"%>
-<%@page import="bitcamp.java110.cms.dao.ManagerDao"%>
 <%@ page language="java" 
     contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
@@ -35,17 +33,19 @@ table, th, td {
      scope="request"
      id="list"
      class="java.util.ArrayList"
-     type="java.util.List<Manager>"
+     type="java.util.List<bitcamp.java110.cms.domain.Manager>"
       />
-     
+      
 <%
-for (Manager s : list) {
+for (Manager m : list) {
+    pageContext.setAttribute("m", m);
+    
 %>
 <tr>
-    <td><%=s.getNo()%></td>
-    <td><a href='detail?no=<%=s.getNo()%>'><%=s.getName()%></a></td>
-    <td><%=s.getEmail()%></td>
-    <td><%=s.getPosition()%></td>
+    <td>${m.no}</td>
+    <td><a href='detail?no=${m.no}'>${m.name}</a></td>
+    <td>${m.email}</td>
+    <td>${m.position}</td>
    
 </tr>
 <%
