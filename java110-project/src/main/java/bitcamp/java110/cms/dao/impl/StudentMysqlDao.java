@@ -39,6 +39,7 @@ public class StudentMysqlDao implements StudentDao {
             
         } finally {
             try {stmt.close();} catch (Exception e) {}
+            dataSource.returnConnection(con);
         }
     }
     
@@ -46,12 +47,16 @@ public class StudentMysqlDao implements StudentDao {
         
         ArrayList<Student> list = new ArrayList<>();
         
+        
+        
         Connection con = null;
         Statement stmt = null;
         ResultSet rs = null;
         
         try {
             con = dataSource.getConnection();
+            
+            
             
             stmt = con.createStatement();
             
@@ -80,6 +85,7 @@ public class StudentMysqlDao implements StudentDao {
         } finally {
             try {rs.close();} catch (Exception e) {}
             try {stmt.close();} catch (Exception e) {}
+            dataSource.returnConnection(con);
         }
         return list;
     }
@@ -126,6 +132,7 @@ public class StudentMysqlDao implements StudentDao {
         } finally {
             try {rs.close();} catch (Exception e) {}
             try {stmt.close();} catch (Exception e) {}
+            dataSource.returnConnection(con);
         }
     }
     
@@ -172,6 +179,7 @@ public class StudentMysqlDao implements StudentDao {
         } finally {
             try {rs.close();} catch (Exception e) {}
             try {stmt.close();} catch (Exception e) {}
+            dataSource.returnConnection(con);
         }
     }
     
@@ -192,6 +200,7 @@ public class StudentMysqlDao implements StudentDao {
             
         } finally {
             try {stmt.close();} catch (Exception e) {}
+            dataSource.returnConnection(con);
         }
     }
     
@@ -239,6 +248,7 @@ public class StudentMysqlDao implements StudentDao {
         } finally {
             try {rs.close();} catch (Exception e) {}
             try {stmt.close();} catch (Exception e) {}
+            dataSource.returnConnection(con);
         }
     }
 }
