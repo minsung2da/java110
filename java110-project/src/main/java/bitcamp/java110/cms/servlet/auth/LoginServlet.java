@@ -15,6 +15,7 @@ import bitcamp.java110.cms.dao.ManagerDao;
 import bitcamp.java110.cms.dao.StudentDao;
 import bitcamp.java110.cms.dao.TeacherDao;
 import bitcamp.java110.cms.domain.Member;
+import bitcamp.java110.cms.service.AuthService;
 
 @WebServlet("/auth/login")
 public class LoginServlet extends HttpServlet {
@@ -56,23 +57,12 @@ public class LoginServlet extends HttpServlet {
             response.addCookie(cookie);
         }
         
-        Member loginUser = null;
+        AuthService authService = (AuthService)this.getServletContext()
+                                     .getAttribute("authService");
         
-        if (type.equals("manager")) {
-            ManagerDao managerDao = (ManagerDao)this.getServletContext()
-                    .getAttribute("managerDao");
-            loginUser = managerDao.findByEmailPassword(email, password);
-            
-        } else if (type.equals("student")) {
-            StudentDao studentDao = (StudentDao)this.getServletContext()
-                    .getAttribute("studentDao");
-            loginUser = studentDao.findByEmailPassword(email, password);
-            
-        } else if (type.equals("teacher")) {
-            TeacherDao teacherDao = (TeacherDao)this.getServletContext()
-                    .getAttribute("teacherDao");
-            loginUser = teacherDao.findByEmailPassword(email, password);
-        }
+        
+        Member loginUser = authService.getMember(email, password, type);
+        
         
         HttpSession session = request.getSession();
         if (loginUser != null) {
