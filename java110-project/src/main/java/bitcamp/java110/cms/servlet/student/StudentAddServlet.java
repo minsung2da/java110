@@ -67,14 +67,11 @@ public class StudentAddServlet extends HttpServlet {
             response.sendRedirect("list");
             
         } catch(Exception e) {
-            
-            RequestDispatcher rd = request.getRequestDispatcher("/error");
-            
             request.setAttribute("error", e);
             request.setAttribute("message", "학생 등록 오류!");
             request.setAttribute("refresh", "3;url=list");
             
-            rd.forward(request, response);
+            request.getRequestDispatcher("/error").forward(request, response);
         }
         
     }

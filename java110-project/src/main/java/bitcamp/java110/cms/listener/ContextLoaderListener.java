@@ -36,7 +36,6 @@ public class ContextLoaderListener implements ServletContextListener {
             TransactionManager txManager = TransactionManager.getInstance();
             txManager.setDataSource(dataSource);
             
-            
             // DAO 객체 생성 및 DB 커네션풀 주입하기
             MemberMysqlDao memberDao = new MemberMysqlDao();
             memberDao.setDataSource(dataSource);
@@ -59,15 +58,15 @@ public class ContextLoaderListener implements ServletContextListener {
             managerService.setManagerDao(managerDao);
             managerService.setPhotoDao(photoDao);
             
-            TeacherServiceImpl teacherService = new TeacherServiceImpl();
-            teacherService.setMemberDao(memberDao);
-            teacherService.setTeacherDao(teacherDao);
-            teacherService.setPhotoDao(photoDao);
-
             StudentServiceImpl studentService = new StudentServiceImpl();
             studentService.setMemberDao(memberDao);
             studentService.setStudentDao(studentDao);
             studentService.setPhotoDao(photoDao);
+            
+            TeacherServiceImpl teacherService = new TeacherServiceImpl();
+            teacherService.setMemberDao(memberDao);
+            teacherService.setTeacherDao(teacherDao);
+            teacherService.setPhotoDao(photoDao);
             
             AuthServiceImpl authService = new AuthServiceImpl();
             authService.setManagerDao(managerDao);
@@ -77,9 +76,8 @@ public class ContextLoaderListener implements ServletContextListener {
             // 서블릿에서 Service를 이용할 수 있도록 ServletContext 보관소에 저장하기
             sc.setAttribute("managerService", managerService);
             sc.setAttribute("studentService", studentService);
-            sc.setAttribute("teacherService", teacherService );
+            sc.setAttribute("teacherService", teacherService);
             sc.setAttribute("authService", authService);
-            
             
         } catch (Exception e) {
             e.printStackTrace();

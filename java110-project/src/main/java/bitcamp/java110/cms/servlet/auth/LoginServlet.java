@@ -11,9 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import bitcamp.java110.cms.dao.ManagerDao;
-import bitcamp.java110.cms.dao.StudentDao;
-import bitcamp.java110.cms.dao.TeacherDao;
 import bitcamp.java110.cms.domain.Member;
 import bitcamp.java110.cms.service.AuthService;
 
@@ -57,12 +54,11 @@ public class LoginServlet extends HttpServlet {
             response.addCookie(cookie);
         }
         
-        AuthService authService = (AuthService)this.getServletContext()
-                                     .getAttribute("authService");
-        
+        AuthService authService = 
+                (AuthService)this.getServletContext()
+                                 .getAttribute("authService");
         
         Member loginUser = authService.getMember(email, password, type);
-        
         
         HttpSession session = request.getSession();
         if (loginUser != null) {

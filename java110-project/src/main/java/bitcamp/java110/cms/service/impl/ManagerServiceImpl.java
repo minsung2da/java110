@@ -44,8 +44,7 @@ public class ManagerServiceImpl implements ManagerService {
             txManager.commit();
             
         } catch (Exception e) {
-            try { txManager.rollback();}catch (Exception e2) {}
-         
+            try {txManager.rollback();} catch (Exception e2) {}
             throw new RuntimeException(e);
         }
     }
@@ -54,37 +53,32 @@ public class ManagerServiceImpl implements ManagerService {
     public List<Manager> list() {
         return managerDao.findAll();
     }
-
+    
     @Override
     public Manager get(int no) {
-      
         return managerDao.findByNo(no);
     }
-
+    
     @Override
     public void delete(int no) {
         TransactionManager txManager = TransactionManager.getInstance();
-       try { 
         
-           txManager.startTransaction();
-           
-       if( managerDao.delete(no)==0) {
-           throw new RuntimeException("해당 번호의 데이터가 없습니다.");
-       }
-        photoDao.delete(no);
-        memberDao.delete(no);   
-        
-        txManager.commit();
-        
-       }catch (Exception e) {
-           try { txManager.rollback();}catch (Exception e2) {}
-        
-           throw new RuntimeException(e);
-       }
+        try {
+            txManager.startTransaction();
+            
+            if (managerDao.delete(no) == 0) {
+                throw new RuntimeException("해당 번호의 데이터가 없습니다.");
+            }
+            photoDao.delete(no);
+            memberDao.delete(no);
+            
+            txManager.commit();
+            
+        } catch (Exception e) {
+            try {txManager.rollback();} catch (Exception e2) {}
+            throw new RuntimeException(e);
+        }
     }
-    
-    
-    
 }
 
 
