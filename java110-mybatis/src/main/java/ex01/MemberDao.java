@@ -15,7 +15,6 @@ public class MemberDao {
         this.dataSource = dataSource;
     }
 
- 
     public int insert(Member member) throws DaoException {
         Connection con = null;
         PreparedStatement stmt = null;
@@ -49,7 +48,6 @@ public class MemberDao {
         }
     }
     
-  
     public int delete(int no) throws DaoException {
         Connection con = null;
         PreparedStatement stmt = null;
@@ -70,7 +68,7 @@ public class MemberDao {
         }
     }
     
-public List<Member> findAll() throws DaoException {
+    public List<Member> findAll() throws DaoException {
         
         ArrayList<Member> list = new ArrayList<>();
         
@@ -108,7 +106,28 @@ public List<Member> findAll() throws DaoException {
         }
         return list;
     }
-    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
