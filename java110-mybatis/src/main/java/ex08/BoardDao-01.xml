@@ -21,16 +21,16 @@
     <result column="cont" property="content"/>
     <result column="cnt" property="viewCount"/>
     <result column="cdt" property="createdDate"/>
-    <association property="member" javaType="member">
+    <association property="member" javaType="member"><!-- 조인이 한개일 때 -->
 	    <id column="mno" property="no"/>
 	    <result column="name" property="name"/>
 	    <result column="email" property="email"/>
 	    <result column="tel" property="tel"/>
     </association>
-    <collection property="attachFiles" ofType="attachfile">
+    <collection property="attachFiles" ofType="attachfile"><!-- 조인이 여러개일 때 -->
         <id column="afno" property="no"/>
         <result column="fi_nm" property="filename"/>
-    </collection>
+    </collection> 
   </resultMap>
   
   <select id="findAll" resultMap="boardMap" parameterType="map">
