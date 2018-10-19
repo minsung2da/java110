@@ -32,8 +32,12 @@ public class Test03 {
                 new AnnotationConfigApplicationContext(
                         AppConfig.class);
     
-        
        
+     
+        
+        
+        
+        
     }
     
 }

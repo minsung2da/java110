@@ -1,4 +1,5 @@
 //객체생성 : factory method 사용
+
 package ex01;
 
 public class Test02 {

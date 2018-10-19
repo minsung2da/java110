@@ -3,7 +3,7 @@ package ex01;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class Test6 {
+public class Test06 {
 
     public static void main(String[] args) {
         
