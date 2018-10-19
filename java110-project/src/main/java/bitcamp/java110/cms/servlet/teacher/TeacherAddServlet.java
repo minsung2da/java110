@@ -15,7 +15,6 @@ import javax.servlet.http.Part;
 import org.springframework.context.ApplicationContext;
 
 import bitcamp.java110.cms.domain.Teacher;
-import bitcamp.java110.cms.service.StudentService;
 import bitcamp.java110.cms.service.TeacherService;
 
 @MultipartConfig(maxFileSize=2_000_000)
