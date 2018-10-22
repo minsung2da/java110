@@ -1,11 +1,50 @@
 # java110
 비트캠프 **자바 110기** 실습 프로젝트 
 
-## v6.0
-- Nybatis의 Spring IoC 컨테이너 연동
+## v6.3
+- PageController 인터페이스 대신 애노테이션을 사용하여 호출 규칙을 정의
+  - 인터페이스의 엄격함 대신에 애노테이션의 유연함을 이용
+  - 즉 애노테이션을 이용하면 메서드의 이름을 고청할 필요가 없다.
 - 작업
-  - mybatis-spring 연동 라이브러리 가져오기
-  - 
+  - 요청이 들어왔을 때 호출될 메서드를 지정할 @RequestMapping 애노테이션을 생성한다.
+  - PageController 인터페이스를 제거하는 대신에 메서드에 애노테이션을 붙인다.
+  - 프론트 컨트롤러 변경한다.
+
+## v6.2
+- Page Controller를 POJO로 전환
+  - Spring IoC 컨테이너에서 관리할 수 있다.
+  - DispatcherServlet 클래스 변경
+- 작업
+  - 프론트 컨트롤러와 페이지 컨트롤러 사이의 호출 규칙을 PageController로 전환한다.
+  - 페이지 컨트롤러 역할을 수행하는 서블릿을 일반 클래스로 전환한다.
+
+## v6.1
+- Front Controller 도입
+  - Facade 디자인 패턴 적용
+- 작업
+  - 컨트롤러들의 공통 기능을 분리하여 DispatcherServlet에서 처리한다.
+
+
+v6.0
+Mybatis와 Spring IoC 컨테이너 연동
+작업
+mybatis-spring 연동 라이브러리 가져오기
+mvnrepository.com에서 'mybatis-spring' 검색
+build.gradle 에 라이브러리 정보 등록
+'gradle eclipse' 실행
+이클립스 프로젝트 리프래시
+mybatis-spring 문서 참고하여 스프링 설정하기
+mybatis.org 사이트 => github.com => spring 저장소 => 문서
+즐겨 찾기에 등록
+jdbc.properties 파일 로딩
+@PropertySource 애노테이션 사용
+DataSource 객체 준비
+apache common-dbcp 라이브러리 추가
+DataSource 객체 생성 메서드 추가
+SqlSessionFactory 객체 생성
+XML 기반 mybatis 설정을 스프링 Java Config로 대체한다.
+mybatis-spring 라이브러리에서 제공하는 SqlSessionFactoryBean 을 사용한다.
+의존 라이브러리 spring-jdbc를 추가해야 한다.
 
 
 ## v5.9
