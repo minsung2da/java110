@@ -16,12 +16,28 @@ public class Test01 {
         */
         
         
-        ApplicationContext iocContainer = new 
+      ApplicationContext iocContainer = new 
                 ClassPathXmlApplicationContext("spring/p1/app-context-1.xml");
         
-        Car c1 = (Car)iocContainer.getBean("c1");
-        System.out.println(c1);
+   /*   Car c1 = (Car)iocContainer.getBean("c1");
+        System.out.println(c1);*/
+        
+       CarFactory1 f = new CarFactory1();
+        
+       Car c1 = CarFactory1.create("그랜저");
+      
+      System.out.println(c1);
+      
+        
+     Car c2 = (Car)iocContainer.getBean("c2");
+      System.out.println(c2);
+     
+      
+/*      Car c3 = (Car)iocContainer.getBean("c3");
+      System.out.println(c3);*/
+        
     }
+    
     
 }
 

@@ -54,10 +54,9 @@ public class ManagerAddServlet extends HttpServlet {
         m.setTel(request.getParameter("tel"));
         m.setPosition(request.getParameter("position"));
         
-        
         ApplicationContext iocContainer = 
-                (ApplicationContext)this.getServletContext().getAttribute("iocContainer");
-        
+                (ApplicationContext)this.getServletContext()
+                                        .getAttribute("iocContainer");
         ManagerService managerService = 
                 iocContainer.getBean(ManagerService.class);
         

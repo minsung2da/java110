@@ -53,9 +53,9 @@ public class TeacherAddServlet extends HttpServlet {
         t.setSubjects(request.getParameter("subjects"));
         
         ApplicationContext iocContainer = 
-                (ApplicationContext)this.getServletContext().getAttribute("iocContainer");
-        
-       TeacherService teacherService = 
+                (ApplicationContext)this.getServletContext()
+                                        .getAttribute("iocContainer");
+        TeacherService teacherService = 
                 iocContainer.getBean(TeacherService.class);
         
         try {

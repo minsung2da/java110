@@ -57,10 +57,9 @@ public class LoginServlet extends HttpServlet {
         }
         
         ApplicationContext iocContainer = 
-                (ApplicationContext)this.getServletContext().getAttribute("iocContainer");
-       
+                (ApplicationContext)this.getServletContext()
+                                        .getAttribute("iocContainer");
         AuthService authService = iocContainer.getBean(AuthService.class);
-                                
         
         Member loginUser = authService.getMember(email, password, type);
         
@@ -69,17 +68,16 @@ public class LoginServlet extends HttpServlet {
             // 회원 정보를 세션에 보관한다.
             session.setAttribute("loginUser", loginUser);
             
-            switch(type)
-            {
-            case "student" :
+            switch (type) {
+            case "student":
                 response.sendRedirect("../student/list");
                 break;
-            case "teacher" :
+            case "teacher":
                 response.sendRedirect("../teacher/list");
-                break;
-            case "manager" :
+                break; 
+            case "manager":
                 response.sendRedirect("../manager/list");
-                break;
+                break; 
             }
         } else {
             // 로그인 된 상태에서 다른 사용자로 로그인을 시도하다가 
@@ -90,5 +88,17 @@ public class LoginServlet extends HttpServlet {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 

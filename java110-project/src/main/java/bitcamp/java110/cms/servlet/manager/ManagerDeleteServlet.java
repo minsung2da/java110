@@ -25,8 +25,8 @@ public class ManagerDeleteServlet extends HttpServlet {
         int no = Integer.parseInt(request.getParameter("no"));
         
         ApplicationContext iocContainer = 
-                (ApplicationContext)this.getServletContext().getAttribute("iocContainer");
-        
+                (ApplicationContext)this.getServletContext()
+                                        .getAttribute("iocContainer");
         ManagerService managerService = 
                 iocContainer.getBean(ManagerService.class);
         

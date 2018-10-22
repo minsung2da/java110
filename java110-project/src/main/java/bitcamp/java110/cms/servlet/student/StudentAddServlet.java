@@ -53,8 +53,8 @@ public class StudentAddServlet extends HttpServlet {
         s.setWorking(Boolean.parseBoolean(request.getParameter("working")));
         
         ApplicationContext iocContainer = 
-                (ApplicationContext)this.getServletContext().getAttribute("iocContainer");
-        
+                (ApplicationContext)this.getServletContext()
+                                        .getAttribute("iocContainer");
         StudentService studentService = 
                 iocContainer.getBean(StudentService.class);
         
