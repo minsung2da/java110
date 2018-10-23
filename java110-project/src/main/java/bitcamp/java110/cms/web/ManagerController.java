@@ -1,10 +1,11 @@
 package bitcamp.java110.cms.web;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Component;
 
 import bitcamp.java110.cms.domain.Manager;
 import bitcamp.java110.cms.mvc.RequestMapping;
+import bitcamp.java110.cms.mvc.RequestParam;
 import bitcamp.java110.cms.service.ManagerService;
 
 
@@ -20,94 +22,71 @@ public class ManagerController  {
 
     @Autowired
     ManagerService managerService;
+    
+    @Autowired
+    ServletContext sc;
 
     @RequestMapping("/manager/list")
     public String list(
-            HttpServletRequest request, 
-            HttpServletResponse response) {
+            @RequestParam(value="pageNo",defaultValue="1") int pageNo,
+            @RequestParam(value="pageSize",defaultValue="3") int pageSize,
+            Map<String,Object> map) {
 
-        int pageNo = 1;
-        int pageSize = 3;
-
-        if (request.getParameter("pageNo") != null) {
-            pageNo = Integer.parseInt(request.getParameter("pageNo"));
+      
             if (pageNo < 1)
                 pageNo = 1;
-        }
 
-        if (request.getParameter("pageSize") != null) {
-            pageSize = Integer.parseInt(request.getParameter("pageSize"));
             if (pageSize < 3 || pageSize > 10)
                 pageSize = 3;
-        }
 
         List<Manager> list = managerService.list(pageNo, pageSize);
-
-        request.setAttribute("list", list);
+        map.put("list", list);
+       
         return "/manager/list.jsp";
     }
 
     @RequestMapping("/manager/detail")
     public String detail(
-            HttpServletRequest request, 
-            HttpServletResponse response) {
+            @RequestParam(value ="no")int no,
+            Map<String,Object> map) {
 
-        int no = Integer.parseInt(request.getParameter("no"));
+       
         Manager m = managerService.get(no);
-        request.setAttribute("manager", m);
+        map.put("manager", m);
         return "/manager/detail.jsp";
     }
 
     @RequestMapping("/manager/add")
     public String add(
-            HttpServletRequest request, 
-            HttpServletResponse response) throws Exception {
+           Manager manager,
+            HttpServletRequest request) throws Exception {
 
         if (request.getMethod().equals("GET")) {
             return "/manager/form.jsp";
         }
 
-        request.setCharacterEncoding("UTF-8");
+       
 
-        Manager m = new Manager();
-        m.setName(request.getParameter("name"));
-        m.setEmail(request.getParameter("email"));
-        m.setPassword(request.getParameter("password"));
-        m.setTel(request.getParameter("tel"));
-        m.setPosition(request.getParameter("position"));
-
+      
         // 사진 데이터 처리
         Part part = request.getPart("file1");
         if (part.getSize() > 0) {
             String filename = UUID.randomUUID().toString();
-            part.write(request.getServletContext()
-                    .getRealPath("/upload/" + filename));
-            m.setPhoto(filename);
+            part.write(sc.getRealPath("/upload/" + filename));
+            manager.setPhoto(filename);
         }
 
-        managerService.add(m);
+        managerService.add(manager);
         return "redirect:list";
     }
     
     @RequestMapping("/manager/delete")
-    public String delete(
-            HttpServletRequest request, 
-            HttpServletResponse response) 
-    {
-
-
-        int no = Integer.parseInt(request.getParameter("no"));
+    public String delete(@RequestParam("no") int no){
+        
 
        managerService.delete(no);
         return "redirect:list";
 
-
     }
 }
-
-
-
-
-
-
 

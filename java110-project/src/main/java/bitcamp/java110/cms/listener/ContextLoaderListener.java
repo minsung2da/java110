@@ -14,9 +14,11 @@ public class ContextLoaderListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent sce) {
         System.out.println("ContextLoaderListener.contextInitialized() 실행!");
         
-        ServletContext sc = sce.getServletContext();
+         ServletContext sc = sce.getServletContext();
 
         try {
+            AppConfig.sc = sce.getServletContext();
+            
             ApplicationContext context = 
                     new AnnotationConfigApplicationContext(AppConfig.class);
             
