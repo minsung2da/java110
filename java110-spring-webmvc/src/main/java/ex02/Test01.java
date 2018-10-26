@@ -1,4 +1,4 @@
-// request handler?—?„œ ì§ì ‘ ì½˜í…?Š¸ ì¶œë ¥?•˜ê¸?
+// request handlerì—ì„œ ì§ì ‘ ì½˜í…íŠ¸ ì¶œë ¥í•˜ê¸°
 package ex02;
 
 import org.springframework.http.HttpEntity;
@@ -15,33 +15,33 @@ public class Test01 {
     @RequestMapping("/ex02/test01/m1")
     @ResponseBody
     public String m1() {
-        // ë¦¬í„´ ê°’ì„ ì½˜í…?Š¸ë¡? ë³´ë‚¼ ?•Œ ë©”ì„œ?“œ ?„ ?–¸ë¶??— @ResponseBodyë¥? ë¶™ì¸?‹¤.
-        // ê¸°ë³¸ ì½˜í…?Š¸ ???…?´ "text/plain;charset=ISO-8859-1" ?´?‹¤.
-        // ê·¸ë˜?„œ ?•œê¸??„ ì¶œë ¥?•  ?•Œ ISO-8859-1 ë¬¸ì?‘œ?— ?•œê¸??´ ? •?˜?˜ì§? ?•Š?•„?„œ 
-        // ?ë¡? ë°”ë?Œì–´ ì¶œë ¥?œ?‹¤.
-        return "Hello! ?•ˆ?…•?•˜?„¸?š”!";
+        // ë¦¬í„´ ê°’ì„ ì½˜í…íŠ¸ë¡œ ë³´ë‚¼ ë•Œ ë©”ì„œë“œ ì„ ì–¸ë¶€ì— @ResponseBodyë¥¼ ë¶™ì¸ë‹¤.
+        // ê¸°ë³¸ ì½˜í…íŠ¸ íƒ€ì…ì´ "text/plain;charset=ISO-8859-1" ì´ë‹¤.
+        // ê·¸ë˜ì„œ í•œê¸€ì„ ì¶œë ¥í•  ë•Œ ISO-8859-1 ë¬¸ìí‘œì— í•œê¸€ì´ ì •ì˜ë˜ì§€ ì•Šì•„ì„œ 
+        // ?ë¡œ ë°”ë€Œì–´ ì¶œë ¥ëœë‹¤.
+        return "Hello! ì•ˆë…•í•˜ì„¸ìš”!";
     }
     
     @RequestMapping(value="/ex02/test01/m2", 
             produces="text/plain;charset=UTF-8")
     @ResponseBody
     public String m2() {
-        // ?•œê¸??´ ê¹¨ì?ì§? ?•Š?„ë¡? ?•˜? ¤ë©? @RequestMapping?— ? •ë³´ë?? ?“±ë¡í•˜?¼!
+        // í•œê¸€ì´ ê¹¨ì§€ì§€ ì•Šë„ë¡ í•˜ë ¤ë©´ @RequestMappingì— ì •ë³´ë¥¼ ë“±ë¡í•˜ë¼!
         //
-        return "Hello! ?•ˆ?…•?•˜?„¸?š”!";
+        return "Hello! ì•ˆë…•í•˜ì„¸ìš”!";
     }
     
     @RequestMapping("/ex02/test01/m3")
     public HttpEntity<String> m3() {
         // 
-        // ë¦¬í„´ ???…?´ HttpEntity?¼ ê²½ìš° 
-        // ?”„ë¡ íŠ¸ ì»¨íŠ¸ë¡¤ëŸ¬?Š” ë¦¬í„´ ê°’ì´ ì½˜í…?Š¸?¸ ê²ƒìœ¼ë¡? ê°„ì£¼?•œ?‹¤.
+        // ë¦¬í„´ íƒ€ì…ì´ HttpEntityì¼ ê²½ìš° 
+        // í”„ë¡ íŠ¸ ì»¨íŠ¸ë¡¤ëŸ¬ëŠ” ë¦¬í„´ ê°’ì´ ì½˜í…íŠ¸ì¸ ê²ƒìœ¼ë¡œ ê°„ì£¼í•œë‹¤.
         //
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Type", "text/plain;charset=UTF-8");
         
         HttpEntity<String> entity = new HttpEntity<>(
-                "Hello! ?•ˆ?…•?•˜?„¸?š”!",
+                "Hello! ì•ˆë…•í•˜ì„¸ìš”!",
                 headers);
         
         return entity;
@@ -50,14 +50,14 @@ public class Test01 {
     @RequestMapping("/ex02/test01/m4")
     public ResponseEntity<String> m4() {
         // 
-        // ë¦¬í„´ ???…?´ ReponseEntity?¼ ê²½ìš° 
-        // ?”„ë¡ íŠ¸ ì»¨íŠ¸ë¡¤ëŸ¬?Š” ë¦¬í„´ ê°’ì´ ì½˜í…?Š¸?¸ ê²ƒìœ¼ë¡? ê°„ì£¼?•œ?‹¤.
+        // ë¦¬í„´ íƒ€ì…ì´ ReponseEntityì¼ ê²½ìš° 
+        // í”„ë¡ íŠ¸ ì»¨íŠ¸ë¡¤ëŸ¬ëŠ” ë¦¬í„´ ê°’ì´ ì½˜í…íŠ¸ì¸ ê²ƒìœ¼ë¡œ ê°„ì£¼í•œë‹¤.
         //
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Type", "text/plain;charset=UTF-8");
         
         ResponseEntity<String> entity = new ResponseEntity<>(
-                "Hello! ?•ˆ?…•?•˜?„¸?š”!",
+                "Hello! ì•ˆë…•í•˜ì„¸ìš”!",
                 headers,
                 HttpStatus.OK);
         
