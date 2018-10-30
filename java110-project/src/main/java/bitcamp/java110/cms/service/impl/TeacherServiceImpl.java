@@ -50,7 +50,6 @@ public class TeacherServiceImpl implements TeacherService {
         return teacherDao.findByNo(no);
     }
     
-    
     @Transactional
     @Override
     public void delete(int no) {
