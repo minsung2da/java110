@@ -3,40 +3,35 @@ package ex04;
 import java.sql.Date;
 
 public class Car {
+    private int no;
+    private String model;
+    private String maker;
+    private int cc;
+    private Date createdDate;
+    private Engine engine;
     
-     private int no;
-     private String model;
-     private String maker;
-     private int cc; 
-     private Date createdDate;
-     
-     private Engine engine;
-     
-     public Car() {
-         System.out.println("Car() 호출됨!");
-     }
-     
-     public Car(String model, int cc) {
-       this.model = model;
-       this.cc = cc;
-       
-       System.out.println("Car(String,int) 호출됨!");
-     }
-     
-     public Car(int cc ,String maker) {
-         this.maker = maker;
-         this.cc = cc;
-         
-         System.out.println("Car(int,String) 호출됨!");
-       }
-     
-     public Car(String model, int cc, Engine engine) {
-         this.model = model;
-         this.cc = cc;
-         this.engine = engine;
-         
-         System.out.println("Car(String,int,engine) 호출됨!");
-       }
+    public Car() {
+        System.out.println("Car() 호출됨!");
+    }
+    
+    public Car(String model, int cc) {
+        this.model = model;
+        this.cc = cc;
+        System.out.println("Car(String,int) 호출됨!");
+    }
+    
+    public Car(int cc, String maker) {
+        this.maker = maker;
+        this.cc = cc;
+        System.out.println("Car(int,String) 호출됨!");
+    }
+    
+    public Car(String model, int cc, Engine engine) {
+        this.model = model;
+        this.cc = cc;
+        this.engine = engine;
+        System.out.println("Car(String,int,Engine) 호출됨!");
+    }
 
     public int getNo() {
         return no;
@@ -77,7 +72,7 @@ public class Car {
     public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
     }
-
+    
     public Engine getEngine() {
         return engine;
     }
@@ -94,11 +89,6 @@ public class Car {
 
     
     
-   
-
-
-       
-     
     
     
 }

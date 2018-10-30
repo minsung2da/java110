@@ -3,31 +3,27 @@ package ex03;
 import java.sql.Date;
 
 public class Car {
+    private int no;
+    private String model;
+    private String maker;
+    private int cc;
+    private Date createdDate;
     
-     private int no;
-     private String model;
-     private String maker;
-     private int cc; 
-     private Date createdDate;
-     
-     
-     public Car() {
-         System.out.println("Car() 호출됨!");
-     }
-     
-     public Car(String model, int cc) {
-       this.model = model;
-       this.cc = cc;
-       
-       System.out.println("Car(String,int) 호출됨!");
-     }
-     
-     public Car(int cc ,String model) {
-         this.model = model;
-         this.cc = cc;
-         
-         System.out.println("Car(int,String) 호출됨!");
-       }
+    public Car() {
+        System.out.println("Car() 호출됨!");
+    }
+    
+    public Car(String model, int cc) {
+        this.model = model;
+        this.cc = cc;
+        System.out.println("Car(String,int) 호출됨!");
+    }
+    
+    public Car(int cc, String model) {
+        this.model = model;
+        this.cc = cc;
+        System.out.println("Car(int,String) 호출됨!");
+    }
 
     public int getNo() {
         return no;
@@ -74,10 +70,7 @@ public class Car {
         return "Car [no=" + no + ", model=" + model + ", maker=" + maker + ", cc=" + cc + ", createdDate=" + createdDate
                 + "]";
     }
-
-
-       
-     
+    
     
     
 }

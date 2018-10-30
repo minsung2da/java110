@@ -1,12 +1,10 @@
 package ex05;
 
 public class Tire {
-
-     private String maker;
-     private int width;
-     private int height;
-     
-     
+    private String maker;
+    private int width;
+    private int height;
+    
     public String getMaker() {
         return maker;
     }
@@ -25,7 +23,6 @@ public class Tire {
     public void setHeight(int height) {
         this.height = height;
     }
-    
     @Override
     public String toString() {
         return "Tire [maker=" + maker + ", width=" + width + ", height=" + height + "]";
@@ -61,7 +58,7 @@ public class Tire {
             return false;
         return true;
     }
-     
-     
+    
+    
     
 }

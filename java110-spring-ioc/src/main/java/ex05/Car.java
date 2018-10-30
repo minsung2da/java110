@@ -6,49 +6,45 @@ import java.util.Map;
 import java.util.Set;
 
 public class Car {
+    private int no;
+    private String model;
+    private String maker;
+    private int cc;
+    private Date createdDate;
+    private Engine engine;
+    private CD[] cds;
+    private Set<Tire> tires;
+    private Map<String,Object> options;
     
-     private int no;
-     private String model;
-     private String maker;
-     private int cc; 
-     private Date createdDate;
-     private Engine engine;
-     private CD[] cds;
-     private Set<Tire> tires;
-     private Map<String,Object> options;
-     
-     public Car() {
-         System.out.println("Car() 호출됨!");
-     }
-     
-     public Car(String model, int cc) {
-         System.out.println("Car(String,int) 호출됨!");
-       this.model = model;
-       this.cc = cc;
-       
-     }
-     
-     public Car(int cc ,String maker) {
-         System.out.println("Car(int,String) 호출됨!");
-         this.maker = maker;
-         this.cc = cc;
-         
-       }
-     
-     public Car(String model, int cc, Engine engine) {
-         System.out.println("Car(String,int,engine) 호출됨!");
-         this.model = model;
-         this.cc = cc;
-         this.engine = engine;
-         
-       }
+    public Car() {
+        System.out.println("Car() 호출됨!");
+    }
+    
+    public Car(String model, int cc) {
+        this.model = model;
+        this.cc = cc;
+        System.out.println("Car(String,int) 호출됨!");
+    }
+    
+    public Car(int cc, String maker) {
+        this.maker = maker;
+        this.cc = cc;
+        System.out.println("Car(int,String) 호출됨!");
+    }
+    
+    public Car(String model, int cc, Engine engine) {
+        this.model = model;
+        this.cc = cc;
+        this.engine = engine;
+        System.out.println("Car(String,int,Engine) 호출됨!");
+    }
 
     public int getNo() {
         return no;
     }
 
     public void setNo(int no) {
-        System.out.println("setNo() 호출됨!");
+        System.out.println("Car.setNo()");
         this.no = no;
     }
 
@@ -57,7 +53,7 @@ public class Car {
     }
 
     public void setModel(String model) {
-        System.out.println("setModel() 호출됨!");
+        System.out.println("Car.setModel()");
         this.model = model;
     }
 
@@ -66,7 +62,7 @@ public class Car {
     }
 
     public void setMaker(String maker) {
-        System.out.println("setMaker() 호출됨!");
+        System.out.println("Car.setMaker()");
         this.maker = maker;
     }
 
@@ -75,7 +71,7 @@ public class Car {
     }
 
     public void setCc(int cc) {
-        System.out.println("setCc() 호출됨!");
+        System.out.println("Car.setCc()");
         this.cc = cc;
     }
 
@@ -84,26 +80,25 @@ public class Car {
     }
 
     public void setCreatedDate(Date createdDate) {
-        System.out.println("setCreatedDate() 호출됨!");
+        System.out.println("Car.setCreatedDate()");
         this.createdDate = createdDate;
     }
-
+    
     public Engine getEngine() {
         return engine;
     }
 
     public void setEngine(Engine engine) {
-        System.out.println("setEngine() 호출됨!");
+        System.out.println("Car.setEngine()");
         this.engine = engine;
     }
 
-    
     public CD[] getCds() {
         return cds;
     }
 
     public void setCds(CD[] cds) {
-        System.out.println("setCds() 호출됨!");
+        System.out.println("Car.setCds()");
         this.cds = cds;
     }
 
@@ -112,7 +107,7 @@ public class Car {
     }
 
     public void setTires(Set<Tire> tires) {
-        System.out.println("setTires() 호출됨!");
+        System.out.println("Car.setTires()");
         this.tires = tires;
     }
 
@@ -121,7 +116,7 @@ public class Car {
     }
 
     public void setOptions(Map<String, Object> options) {
-        System.out.println("setOptions() 호출됨!");
+        System.out.println("Car.setOptions()");
         this.options = options;
     }
 
@@ -133,6 +128,7 @@ public class Car {
     }
 
     
-
+    
+    
     
 }
