@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import bitcamp.java110.cms.dao.ManagerDao;
 import bitcamp.java110.cms.dao.MemberDao;
@@ -19,6 +21,11 @@ public class ManagerServiceImpl implements ManagerService {
     @Autowired PhotoDao photoDao;
     @Autowired ManagerDao managerDao;
     
+    
+    @Transactional(
+             propagation=Propagation.REQUIRED,
+             rollbackFor=Exception.class     
+             )
     @Override
     public void add(Manager manager) {
         memberDao.insert(manager);
@@ -48,6 +55,8 @@ public class ManagerServiceImpl implements ManagerService {
         return managerDao.findByNo(no);
     }
     
+    
+    @Transactional
     @Override
     public void delete(int no) {
         if (managerDao.delete(no) == 0) {
